@@ -18,21 +18,23 @@ namespace IT_praktika_8
       InitializeComponent();
     }
     Chart Chart;
-    private double XMin = -Math.PI;
-    private double XMax = Math.PI;
-    private double Step = (Math.PI * 2) / 10;
+    private double XMin = 1;
+    private double XMax = 10;
+    private double Step = 1;
     private double[] x;
     private double[] y;
+
+
+
     private void CalcFunction()
     {
-      int count = (int)Math.Ceiling((XMax - XMin) / Step)
-      + 1;
+      int count = (int)Math.Ceiling((XMax - XMin) / Step) + 1;
       x = new double[count];
       y = new double[count];
       for (int i = 0; i < count; i++)
       {
         x[i] = XMin + Step * i;
-        y[i] = Math.Sin(x[i]);
+        y[i] = (Math.Sqrt(1 + Math.Pow(Math.Exp(x[i]), Math.Sqrt(x[i])) + Math.Cos(Math.Pow(x[i], 2))) / (Math.Abs(1 - Math.Pow(Math.Sin(x[i]), 3))) + Math.Log(Math.Abs(2 * x[i])));
       }
     }
     private void Form1_Load(object sender, EventArgs e)
